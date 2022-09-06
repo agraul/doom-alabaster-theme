@@ -1,5 +1,6 @@
 mod A;
 
+#[derive(Debug)]
 static B: i32 = 1;
 enum D { D1, D2 }
 struct E { e1: D, e2: D}

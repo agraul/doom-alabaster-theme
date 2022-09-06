@@ -190,10 +190,12 @@
    ;;;; smerge-tool
    (smerge-upper                          :background (doom-blend red bg 0.2))
    ;;;; tree-sitter
+   (tree-sitter-hl-face:attribute         :foreground fg)
    (tree-sitter-hl-face:constant.builtin  :foreground magenta)
    (tree-sitter-hl-face:escape            :foreground base3)
    (tree-sitter-hl-face:function          :foreground dark-blue)
    (tree-sitter-hl-face:function.call     :foreground fg)
+   (tree-sitter-hl-face:function.macro    :foreground fg)
    (tree-sitter-hl-face:function.special  :foreground fg)
    (tree-sitter-hl-face:label             :foreground fg)
    (tree-sitter-hl-face:property          :foreground fg)
