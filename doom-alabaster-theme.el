@@ -53,6 +53,7 @@
    (blue         '("#007ACC" "#007ACC"   "brightblue"   ))
 
 
+   (yellow-highlight (doom-blend light-yellow bg 0.2))
    (bg-dark base2)
 ;;;; face categories -- required for all themes
    (highlight      blue)
@@ -90,9 +91,9 @@
    (mode-line-inactive                    :foreground modeline-fg :background modeline-bg-inactive)
    (secondary-selection                   :background bg-dark)
    ;;; Search highlight -> light yellow
-   (evil-ex-lazy-highlight                :background (doom-blend light-yellow bg 0.2))
+   (evil-ex-lazy-highlight                :background yellow-highlight)
    (evil-ex-search                        :background light-yellow)
-   (lazy-highlight                        :background (doom-blend light-yellow bg 0.2))
+   (lazy-highlight                        :background yellow-highlight)
    ;;;; vertico family
    (marginalia-size                       :foreground magenta)
    ;;;; all-the-icons
