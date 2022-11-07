@@ -53,6 +53,7 @@
    (blue         '("#007ACC" "#007ACC"   "brightblue"   ))
 
 
+   (bg-dark base2)
 ;;;; face categories -- required for all themes
    (highlight      blue)
    (vertical-bar   base2)
@@ -78,7 +79,7 @@
    (vc-deleted     red)
 
    (modeline-fg fg-alt)
-   (modeline-bg base2)
+   (modeline-bg bg-dark)
    (modeline-bg-inactive base0))
 
 ;;;; Base theme face overrides
@@ -87,7 +88,7 @@
    (mode-line                             :foreground modeline-fg :background modeline-bg)
    (mode-line-emphasis                    :inherit 'mode-line :bold t)
    (mode-line-inactive                    :foreground modeline-fg :background modeline-bg-inactive)
-   (secondary-selection                   :background base2)
+   (secondary-selection                   :background bg-dark)
    ;;; Search highlight -> light yellow
    (evil-ex-lazy-highlight                :background (doom-blend light-yellow bg 0.2))
    (evil-ex-search                        :background light-yellow)
@@ -100,7 +101,7 @@
    (cider-result-overlay-face             :background bg-alt)
    ;;;; company
    (company-tooltip-annotation            :foreground fg)
-   (company-tooltip-selection             :background base2)
+   (company-tooltip-selection             :background bg-dark)
    ;;;; diff-indicator
    (diff-added                            :inherit 'magit-diff-added-highlight)
    (diff-changed                          :inherit 'magit-diff-hunk-heading)
@@ -133,7 +134,7 @@
    ;;;; lsp-rust
    (lsp-rust-analyzer-inlay-face          :foreground fg-alt)
    ;;;; magit
-   (magit-blame-heading                   :foreground dark-blue :background base2)
+   (magit-blame-heading                   :foreground dark-blue :background bg-dark)
    (magit-branch-local                    :foreground dark-blue)
    (magit-cherry-equivalent               :foreground magenta)
    (magit-cherry-unmatched                :foreground blue)
@@ -142,9 +143,9 @@
    (magit-diff-context                    :foreground base6 :background base1)
    (magit-diff-context-highlight          :foreground base7 :background base1)
    (magit-diff-hunk-heading               :foreground fg :background (doom-lighten base3 0.3))
-   (magit-diff-hunk-heading-highlight     :foreground base7 :background base2)
+   (magit-diff-hunk-heading-highlight     :foreground base7 :background bg-dark)
    (magit-diff-hunk-heading-highlight     :foreground bg-alt :background base3)
-   (magit-diff-hunk-heading-selection     :foreground orange :background base2)
+   (magit-diff-hunk-heading-selection     :foreground orange :background bg-dark)
    (magit-diff-our                        :background bg-alt)
    (magit-diff-our-highlight              :background bg-alt)
    (magit-diff-removed                    :foreground red)
