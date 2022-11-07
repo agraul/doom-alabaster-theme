@@ -108,6 +108,8 @@
    (diff-changed                          :inherit 'magit-diff-hunk-heading)
    (diff-hunk-header                      :inherit 'magit-diff-hunk-heading)
    (diff-removed                          :inherit 'magit-diff-removed-highlight)
+   ;;;; eglot
+   (eglot-highlight-symbol-face           :background bg-dark)
    ;;;; forge
    (forge-topic-label                     :box '(:line-width -1 :style none))
    ;;;; git-commit
