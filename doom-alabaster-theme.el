@@ -108,8 +108,13 @@
    (diff-changed                          :inherit 'magit-diff-hunk-heading)
    (diff-hunk-header                      :inherit 'magit-diff-hunk-heading)
    (diff-removed                          :inherit 'magit-diff-removed-highlight)
+   ;;;; dired-git-info
+   (dgi-commit-message-face               :foreground fg-alt)
    ;;;; eglot
    (eglot-highlight-symbol-face           :background bg-dark)
+   ;;;; font-lock
+   (font-lock-preprocessor-face           :foreground operators)
+   (font-lock-preprocessor-char-face      :foreground operators)
    ;;;; forge
    (forge-topic-label                     :box '(:line-width -1 :style none))
    ;;;; git-commit
@@ -205,6 +210,7 @@
    (tree-sitter-hl-face:function.macro    :foreground fg)
    (tree-sitter-hl-face:function.special  :foreground fg)
    (tree-sitter-hl-face:label             :foreground fg)
+   (tree-sitter-hl-face:string.special    :foreground strings)
    (tree-sitter-hl-face:property          :foreground fg)
    (tree-sitter-hl-face:punctuation       :foreground base3)
    (tree-sitter-hl-face:type.builtin      :foreground dark-blue)
