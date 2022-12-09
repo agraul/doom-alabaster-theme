@@ -138,7 +138,7 @@
    ;;;; highlight-numbers-number
    (highlight-numbers-number              :foreground numbers)
    ;;;; lsp
-   (lsp-face-highlight-textual            :background (doom-blend light-yellow bg 0.2))
+   (lsp-face-highlight-textual            :background bg-dark)
    ;;;; lsp-rust
    (lsp-rust-analyzer-inlay-face          :foreground fg-alt)
    ;;;; magit
