@@ -140,7 +140,7 @@
    ;;;; lsp
    (lsp-face-highlight-textual            :background bg-dark)
    ;;;; lsp-rust
-   (lsp-rust-analyzer-inlay-face          :foreground fg-alt)
+   (lsp-rust-analyzer-inlay-face          :foreground fg-alt :background bg-dark)
    ;;;; magit
    (magit-blame-heading                   :foreground dark-blue :background bg-dark)
    (magit-branch-local                    :foreground dark-blue)
