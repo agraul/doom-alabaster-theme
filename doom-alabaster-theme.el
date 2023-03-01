@@ -18,6 +18,15 @@
 ;;; Code:
 (require 'doom-themes)
 
+(defgroup doom-alabaster-theme nil
+  "Options for the `doom-alabaster' theme."
+  :group 'doom-themes)
+
+(defcustom doom-alabaster-fainter-comments nil
+  "If non-nil, comments will be highlighted is less vivid colors."
+  :group 'doom-alabaster-theme
+  :type 'boolean)
+
 (def-doom-theme doom-alabaster
   "A light theme with little highlighting"
 
@@ -60,7 +69,7 @@
    (vertical-bar   base2)
    (selection      dark-blue)
    (builtin        fg)
-   (comments       red)
+   (comments       (doom-lighten red (if doom-alabaster-fainter-comments 0.3 0)))
    (doc-comments   (doom-darken red 0.25))
    (constants      magenta)
    (functions      dark-blue)
