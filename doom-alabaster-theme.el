@@ -148,6 +148,7 @@
    (highlight-numbers-number              :foreground numbers)
    ;;;; lsp
    (lsp-face-highlight-textual            :background bg-dark)
+   (lsp-flycheck-info-unnecessary-face    :foreground base3)
    ;;;; lsp-rust
    (lsp-rust-analyzer-inlay-face          :foreground fg-alt :background bg-dark)
    ;;;; magit
