@@ -40,6 +40,17 @@ Additionally:
   good. When highlighting works reliably, your brain learns to rely on it. When
   it’s not reliable, your brain spends precious brain cycles to re-check
   everything it sees on the screen.
+* Screenshots
+These screenshots use [[https://emacs-tree-sitter.github.io/syntax-highlighting/][tree-sitter-hl-mode]]
+
+#+caption: screenshot1
+[[https://github.com/agraul/doom-alabaster-theme/blob/screenshots/screenshot1.png?raw=true]]
+
+#+caption: screenshot2
+[[https://github.com/agraul/doom-alabaster-theme/blob/screenshots/screenshot2.png?raw=true]]
+
+#+caption: screenshot3
+[[https://github.com/agraul/doom-alabaster-theme/blob/screenshots/screenshot3.png?raw=true]]
 
 * Installation
 1. Add =doom-alabaster-theme= to =$DOOMDIR/packages.el=
@@ -54,7 +65,6 @@ Additionally:
 (setq doom-theme 'doom-alabaster)
    #+end_src
 4. Restart Emacs and enjoy
-
 * Credits
 Originally developed by [[https://github.com/tonsky][Niki Tonsky]] for Sublime Scheme and VSCode. Ported to
 Doom Emacs by [[https://github.com/agraul][Alex Graul]].
