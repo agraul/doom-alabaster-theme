@@ -5,6 +5,7 @@ LOG = logging.getLogger()
 
 
 class C(collections.Reversible):
+    """This is a docstring."""
     a = None
 
     def __init__(self, arg: list):
@@ -13,6 +14,7 @@ class C(collections.Reversible):
         self.s = "multiline\nstring"
         self.r = re.compile(f"regex")
         self.n = 100.000
+        # there we go
         self.b = [True, False]
 
     @staticmethod
