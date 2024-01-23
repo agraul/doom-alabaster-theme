@@ -69,7 +69,7 @@
    (vertical-bar   base2)
    (selection      dark-blue)
    (builtin        fg)
-   (comments       (doom-lighten red (if doom-alabaster-fainter-comments 0.3 0)))
+   (comments       (if doom-alabaster-fainter-comments (doom-darken dark-blue 0.25) red))
    (doc-comments   (doom-darken red 0.25))
    (constants      magenta)
    (functions      dark-blue)
