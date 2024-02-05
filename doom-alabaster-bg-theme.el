@@ -161,6 +161,8 @@
    (gnus-signature                        :foreground fg-alt)
 ;;;; highlight-numbers-number
    (highlight-numbers-number              :foreground numbers)
+   ;;;; hl-todo
+   (hl-todo :foreground fg-red)
 ;;;; lsp
    (lsp-face-highlight-textual            :foreground fg :background bg-alt)
    ;; (lsp-flycheck-info-unnecessary-face    :foreground fg :background red)
@@ -189,6 +191,18 @@
    (magit-log-author                      :background violet)
    (magit-section-secondary-heading       :background violet :weight 'bold)
    (magit-tag                             :foreground blue)
+   ;;; marginalia
+   (marginalia-documentation   :inherit 'font-lock-doc-face)
+   (marginalia-file-priv-dir   :background blue)
+   (marginalia-file-priv-exec  :background green)
+   (marginalia-file-priv-link  :background violet)
+   (marginalia-file-priv-other :background magenta)
+   (marginalia-file-priv-rare  :background fg)
+   (marginalia-file-priv-read  :background yellow)
+   (marginalia-file-priv-write :background red)
+   (marginalia-number          :background numbers)
+   (marginalia-size            :background violet)
+   (marginalia-lighter         :background violet)
 ;;; markdown
    (markdown-code-face                    :background bg-alt)
    (markdown-italic-face                  :background violet)
