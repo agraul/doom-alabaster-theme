@@ -99,6 +99,8 @@
    (mode-line-emphasis                    :inherit 'mode-line :bold t)
    (mode-line-inactive                    :foreground modeline-fg :background modeline-bg-inactive)
    (secondary-selection                   :background bg-dark)
+   ;; drop bold from link
+   (link                                  :foreground highlight :underline t)
    ;;; Search highlight -> light yellow
    (evil-ex-lazy-highlight                :background yellow-highlight)
    (evil-ex-search                        :background light-yellow)
@@ -180,10 +182,14 @@
    (message-header-name                   :foreground green)
    (message-header-other                  :foreground fg)
    (message-header-subject                :foreground fg)
+   ;;; mmm
+   (mmm-default-submode-face              :background bg-alt)
    ;;;; mu4e
    (mu4e-footer-face                      :foreground fg-alt)
    (mu4e-header-key-face                  :foreground fg)
    (mu4e-trashed-face                     :foreground fg-alt :strike-through t)
+   ;;; nerd-icons
+   (nerd-icons-purple                     :foreground magenta)
    ;;;; org
    (org-agenda-date                       :foreground (doom-darken dark-blue 0.2))
    (org-agenda-date-today                 :foreground dark-blue)
@@ -209,6 +215,9 @@
    (outline-6                             :foreground magenta)
    (outline-7                             :foreground blue)
    (outline-8                             :foreground (doom-darken yellow 0.2))
+   ;;; popup
+   (popup-tip-face                        :inherit 'popup-face
+                                          :foreground magenta :background bg-alt)
    ;;;; smerge-tool
    (smerge-upper                          :background (doom-blend red bg 0.2))
    ;;;; tree-sitter
