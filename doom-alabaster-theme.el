@@ -32,34 +32,34 @@
 
 ;;;; Colors
   ;; name        default     256         16
-  ((bg           '("#F7F7F7" "white"     "white"        ))
-   (bg-alt       '("#F0F0F0" "white"     "white"        ))
-   (base0        '("#F0F0F0" "F0F0F0"    "white"        ))
-   (base1        '("#E0E0E0" "#E0E0E0"   "brightblack"  ))
-   (base2        '("#DDDDDD" "#DDDDDD"   "brightblack"  ))
-   (base3        '("#777777" "#777777"   "brightblack"  ))
-   (base4        '("#424242" "#424242"   "brightblack"  ))
-   (base5        '("#000000" "black"     "black"        ))
-   (base6        '("#000000" "black"     "black"        ))
-   (base7        '("#000000" "black"     "black"        ))
-   (base8        '("#000000" "black"     "black"        ))
-   (fg           '("#000000" "black"     "black"        ))
-   (fg-alt       '("#474747" "black"     "black"        ))
+  ((bg           '("#F7F7F7" "white"     "white"))
+   (base0        '("#F0F0F0" "F0F0F0"    "white"))
+   (base1        '("#E0E0E0" "#E0E0E0"   "brightblack"))
+   (base2        '("#DDDDDD" "#DDDDDD"   "brightblack"))
+   (base3        '("#777777" "#777777"   "brightblack"))
+   (base4        '("#424242" "#424242"   "brightblack"))
+   (base5        '("#000000" "black"     "black"))
+   (base6        '("#000000" "black"     "black"))
+   (base7        '("#000000" "black"     "black"))
+   (base8        '("#000000" "black"     "black"))
+   (fg           '("#000000" "black"     "black"))
+   (fg-alt       '("#474747" "black"     "black"))
+   (bg-alt       base0)
 
    (grey       base3)
 
-   (red          '("#AA3731" "#AA3731"   "red"          ))
-   (green        '("#448C27" "#448C27"   "green"        ))
-   (yellow       '("#CB9000" "#CB9000"   "yellow"       ))
-   (dark-blue    '("#325CC0" "#325CC0"   "blue"         ))
-   (magenta      '("#7A3E9D" "#7A3E9D"   "magenta"      ))
-   (dark-cyan    '("#0083B2" "#0083B2"   "cyan"         ))
-   (light-yellow '("#FFBC5D" "#FFBC5D"   "brightyellow" ))
-   (orange       '("#F05050" "#F05050"   "brightred"    ))
-   (teal         '("#60CB00" "#60CB00"   "brightgreen"  ))
+   (red          '("#AA3731" "#AA3731"   "red"))
+   (green        '("#448C27" "#448C27"   "green"))
+   (yellow       '("#CB9000" "#CB9000"   "yellow"))
+   (dark-blue    '("#325CC0" "#325CC0"   "blue"))
+   (magenta      '("#7A3E9D" "#7A3E9D"   "magenta"))
+   (dark-cyan    '("#0083B2" "#0083B2"   "cyan"))
+   (light-yellow '("#FFBC5D" "#FFBC5D"   "brightyellow"))
+   (orange       '("#F05050" "#F05050"   "brightred"))
+   (teal         '("#60CB00" "#60CB00"   "brightgreen"))
    (violet       '("#E64CE6" "#E64CE6"   "brightmagenta"))
-   (cyan         '("#00AACB" "#00AACB"   "brightcyan"   ))
-   (blue         '("#007ACC" "#007ACC"   "brightblue"   ))
+   (cyan         '("#00AACB" "#00AACB"   "brightcyan"))
+   (blue         '("#007ACC" "#007ACC"   "brightblue"))
 
 
    (yellow-highlight (doom-blend light-yellow bg 0.2))
@@ -110,7 +110,8 @@
    ;;;; all-the-icons
    (all-the-icons-purple                  :foreground magenta)
    ;;;; cider
-   (cider-result-overlay-face             :background bg-alt)
+   (cider-debug-code-overlay-face         :background base1)
+   (cider-result-overlay-face             :background base1)
    ;;;; company
    (company-tooltip-annotation            :foreground fg)
    (company-tooltip-selection             :background bg-dark)
@@ -150,7 +151,8 @@
    (highlight-numbers-number              :foreground numbers)
    ;;;; lsp
    (lsp-face-highlight-textual            :background bg-dark)
-   (lsp-flycheck-info-unnecessary-face    :foreground base3)
+   (lsp-flycheck-info-unnecessary-face    :foreground fg-alt :underline `(:style wave :color ,green))
+   (lsp-flycheck-warning-deprecated-face  :inherit 'flycheck-warning)
    ;;;; lsp-rust
    (lsp-rust-analyzer-inlay-face          :foreground fg-alt :background bg-dark)
    ;;;; magit
