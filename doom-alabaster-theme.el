@@ -222,6 +222,8 @@
                                           :foreground magenta :background bg-alt)
    ;;;; smerge-tool
    (smerge-upper                          :background (doom-blend red bg 0.2))
+   ;;;; treemacs
+   (treemacs-git-modified-face            :foreground yellow)
    ;;;; tree-sitter
    (tree-sitter-hl-face:attribute         :foreground fg)
    (tree-sitter-hl-face:constant.builtin  :foreground magenta)
