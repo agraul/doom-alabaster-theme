@@ -128,7 +128,7 @@
    (font-lock-preprocessor-face           :foreground operators)
    (font-lock-preprocessor-char-face      :foreground operators)
    ;;;; forge
-   (forge-topic-label                     :box '(:line-width -1 :style none))
+   (forge-topic-label                     :box '(:line-width -1 :style nil))
    ;;;; git-commit
    (git-commit-comment-branch-local       :inherit 'magit-branch-local)
    (git-commit-comment-branch-remote      :inherit 'magit-branch-remote)
