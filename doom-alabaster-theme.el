@@ -27,23 +27,40 @@
   :group 'doom-alabaster-theme
   :type 'boolean)
 
+(make-obsolete-variable 'doom-alabaster-fainter-comments
+                        "Set doom-alabaster-style to `faint' instead."
+                        "2024-10-08")
+
+(defcustom doom-alabaster-comment-style 'original
+  "Control style of comments.
+
+There are three styles to select from:
+1. `original': very visible comment highlighting
+2. `faint': a less vivid comment highlighting
+3. nil: no comment highlighting."
+  :group 'doom-alabaster-theme
+  :type '(choice (const :tag "Original" original)
+                 (const :tag "faint" faint)
+                 (const :tag "nil" nil)))
+
+
 (def-doom-theme doom-alabaster
   "A light theme with little highlighting"
 
 ;;;; Colors
   ;; name        default     256         16
-  ((bg           '("#F7F7F7" "white"     "white"))
+  ((bg           '("#F7F7F7" "#F7F7F7"     "white"))
    (base0        '("#F0F0F0" "F0F0F0"    "white"))
    (base1        '("#E0E0E0" "#E0E0E0"   "brightblack"))
    (base2        '("#DDDDDD" "#DDDDDD"   "brightblack"))
    (base3        '("#777777" "#777777"   "brightblack"))
    (base4        '("#424242" "#424242"   "brightblack"))
-   (base5        '("#000000" "black"     "black"))
-   (base6        '("#000000" "black"     "black"))
-   (base7        '("#000000" "black"     "black"))
-   (base8        '("#000000" "black"     "black"))
-   (fg           '("#000000" "black"     "black"))
-   (fg-alt       '("#474747" "black"     "black"))
+   (base5        '("#000000" "#000000"     "black"))
+   (base6        '("#000000" "#000000"     "black"))
+   (base7        '("#000000" "#000000"     "black"))
+   (base8        '("#000000" "#000000"     "black"))
+   (fg           '("#000000" "#000000"     "black"))
+   (fg-alt       '("#474747" "#474747"     "black"))
    (bg-alt       base0)
 
    (grey       base3)
@@ -69,7 +86,14 @@
    (vertical-bar   base2)
    (selection      dark-blue)
    (builtin        fg)
-   (comments       (if doom-alabaster-fainter-comments (doom-darken dark-blue 0.25) red))
+   (comments       (cond
+                    ((or (eq doom-alabaster-comment-style 'faint)
+                         doom-alabaster-fainter-comments)
+                     (doom-darken dark-blue 0.25))
+                    ((eq doom-alabaster-comment-style nil)
+                     fg)
+                    ;; 'original == default
+                    (t red)))
    (doc-comments   (doom-darken red 0.25))
    (constants      magenta)
    (functions      dark-blue)
@@ -82,7 +106,7 @@
    (numbers        magenta)
    (region         base2)
    (error          red)
-   (warning        orange)
+   (warning        red)
    (success        green)
    (vc-modified    light-yellow)
    (vc-added       green)
@@ -151,7 +175,6 @@
    (highlight-numbers-number              :foreground numbers)
    ;;;; lsp
    (lsp-face-highlight-textual            :background bg-dark)
-   (lsp-flycheck-info-unnecessary-face    :foreground fg-alt :underline `(:style wave :color ,green))
    (lsp-flycheck-warning-deprecated-face  :inherit 'flycheck-warning)
    ;;;; lsp-rust
    (lsp-rust-analyzer-inlay-face          :foreground fg-alt :background bg-dark)
@@ -179,7 +202,11 @@
    (magit-tag                             :foreground blue)
    ;;; markdown
    (markdown-code-face                    :background bg-alt)
-   (markdown-italic-face                  :foreground magenta)
+   (markdown-bold-face                    :inherit 'bold :foreground fg)
+   (markdown-italic-face                  :inherit 'italic :foreground fg)
+   (markdown-inline-code-face             :foreground red :background bg-alt)
+   (markdown-code-face                    :background bg-alt)
+   (markdown-list-face                    :foreground fg)
    ;;;; message
    (message-header-name                   :foreground green)
    (message-header-other                  :foreground fg)
@@ -198,10 +225,11 @@
    (org-agenda-date-weekend               :foreground (doom-darken dark-blue 0.3))
    (org-agenda-headline-done              :foreground fg-alt)
    (org-block                             :background bg-alt)
-   (org-block-begin-line                  :background  base1 :extend t)
+   (org-block-begin-line                  :background base1 :extend t)
    (org-code                              :foreground red :background bg-alt)
    (org-date                              :foreground fg-alt)
    (org-drawer                            :foreground fg-alt)
+   (org-formula                           :foreground fg)
    (org-headline-done                     :foreground fg-alt)
    (org-property-value                    :foreground fg-alt)
    (org-special-keyword                   :foreground fg-alt)
