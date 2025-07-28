@@ -49,18 +49,18 @@ There are three styles to select from:
 
 ;;;; Colors
   ;; name        default     256         16
-  ((bg           '("#F7F7F7" "#F7F7F7"     "white"))
+  ((bg           '("#F7F7F7" "#F7F7F7"   "white"))
    (base0        '("#F0F0F0" "F0F0F0"    "white"))
    (base1        '("#E0E0E0" "#E0E0E0"   "brightblack"))
    (base2        '("#DDDDDD" "#DDDDDD"   "brightblack"))
    (base3        '("#777777" "#777777"   "brightblack"))
    (base4        '("#424242" "#424242"   "brightblack"))
-   (base5        '("#000000" "#000000"     "black"))
-   (base6        '("#000000" "#000000"     "black"))
-   (base7        '("#000000" "#000000"     "black"))
-   (base8        '("#000000" "#000000"     "black"))
-   (fg           '("#000000" "#000000"     "black"))
-   (fg-alt       '("#474747" "#474747"     "black"))
+   (base5        '("#000000" "#000000"   "black"))
+   (base6        '("#000000" "#000000"   "black"))
+   (base7        '("#000000" "#000000"   "black"))
+   (base8        '("#000000" "#000000"   "black"))
+   (fg           '("#000000" "#000000"   "black"))
+   (fg-alt       '("#474747" "#474747"   "black"))
    (bg-alt       base0)
 
    (grey       base3)
@@ -120,7 +120,7 @@ There are three styles to select from:
   ((line-number                           :background bg-alt)
    (minibuffer-prompt                     :foreground dark-blue)
    (mode-line                             :foreground modeline-fg :background modeline-bg)
-   (mode-line-emphasis                    :inherit 'mode-line :bold t)
+   (mode-line-emphasis                    :inherit 'mode-line :bold bold)
    (mode-line-inactive                    :foreground modeline-fg :background modeline-bg-inactive)
    (secondary-selection                   :background bg-dark)
    ;; drop bold from link
@@ -139,20 +139,44 @@ There are three styles to select from:
    ;;;; company
    (company-tooltip-annotation            :foreground fg)
    (company-tooltip-selection             :background bg-dark)
+   ;;;; custom <built-in
+   (custom-group-tag                      :foreground dark-blue)
+   (custom-button-unraised                :foreground dark-blue :background bg :button '(line-width 1 :style nil))
+   (custom-button-pressed-unraised        :foreground bg :background dark-blue :button '(line-width 1 :style nil))
    ;;;; diff-indicator
    (diff-added                            :inherit 'magit-diff-added-highlight)
    (diff-changed                          :inherit 'magit-diff-hunk-heading)
    (diff-hunk-header                      :inherit 'magit-diff-hunk-heading)
    (diff-removed                          :inherit 'magit-diff-removed-highlight)
+   ;;;; dired <built-in>
+   (dired-header                          :foreground dark-blue :bold bold)
+   (dired-marked                          :foreground magenta :bold bold)
+   (dired-broken-symlink :background warning :foreground bg-alt :bold bold)
+   (dired-symlink                         :foreground dark-cyan)
    ;;;; dired-git-info
    (dgi-commit-message-face               :foreground fg-alt)
+   ;;;; ediff <built-in>
+   (ediff-fine-diff-A                     :background (doom-blend selection bg 0.5) :bold bold :extend t)
    ;;;; eglot
    (eglot-highlight-symbol-face           :background bg-dark)
-   ;;;; font-lock
+   ;;;; eshell <built-in>
+   (eshell-prompt        :foreground fg)
+   (eshell-ls-archive    :foreground fg)
+   (eshell-ls-backup     :foreground fg)
+   (eshell-ls-clutter    :foreground fg)
+   (eshell-ls-directory  :foreground dark-blue)
+   (eshell-ls-executable :foreground fg)
+   (eshell-ls-missing    :foreground fg)
+   (eshell-ls-product    :foreground fg)
+   (eshell-ls-readonly   :foreground fg)
+   (eshell-ls-special    :foreground fg)
+   (eshell-ls-symlink    :inherit 'dired-symlink)
+   (eshell-ls-unreadable :foreground fg)
+   ;;;; font-lock-*-face <built-in>
    (font-lock-preprocessor-face           :foreground operators)
    (font-lock-preprocessor-char-face      :foreground operators)
    ;;;; forge
-   (forge-topic-label                     :box '(:line-width -1 :style nil))
+   (forge-topic-label                     :box '(:line-width -1))
    ;;;; git-commit
    (git-commit-comment-branch-local       :inherit 'magit-branch-local)
    (git-commit-comment-branch-remote      :inherit 'magit-branch-remote)
@@ -198,7 +222,7 @@ There are three styles to select from:
    (magit-dimmed                          :foreground fg-alt)
    (magit-filename                        :foreground fg)
    (magit-log-author                      :foreground magenta)
-   (magit-section-secondary-heading       :foreground magenta :weight 'bold)
+   (magit-section-secondary-heading       :foreground magenta :bold bold)
    (magit-tag                             :foreground blue)
    ;;; markdown
    (markdown-code-face                    :background bg-alt)
@@ -206,6 +230,7 @@ There are three styles to select from:
    (markdown-italic-face                  :inherit 'italic :foreground fg)
    (markdown-inline-code-face             :foreground red :background bg-alt)
    (markdown-code-face                    :background bg-alt)
+   (markdown-link-face                    :inherit 'link)
    (markdown-list-face                    :foreground fg)
    ;;;; message
    (message-header-name                   :foreground green)
@@ -231,23 +256,39 @@ There are three styles to select from:
    (org-drawer                            :foreground fg-alt)
    (org-formula                           :foreground fg)
    (org-headline-done                     :foreground fg-alt)
+   (org-level-1                           :inherit 'outline-1 :weight 'semibold)
    (org-property-value                    :foreground fg-alt)
    (org-special-keyword                   :foreground fg-alt)
    (org-table                             :background bg-alt)
    (org-tag                               :foreground fg)
    (org-verbatim                          :foreground green :background bg-alt)
    ;;;; outline (org-level-N faces inherit these)
-   (outline-1                             :foreground dark-blue)
-   (outline-2                             :foreground magenta)
-   (outline-3                             :foreground blue)
-   (outline-4                             :foreground (doom-darken yellow 0.2))
-   (outline-5                             :foreground dark-blue)
-   (outline-6                             :foreground magenta)
-   (outline-7                             :foreground blue)
-   (outline-8                             :foreground (doom-darken yellow 0.2))
-   ;;; popup
+   (outline-1                             :foreground fg)
+   (outline-2                             :foreground dark-blue)
+   (outline-3                             :foreground magenta)
+   (outline-4                             :foreground blue)
+   (outline-5                             :foreground (doom-darken yellow 0.2))
+   (outline-6                             :foreground fg)
+   (outline-7                             :foreground dark-blue)
+   (outline-8                             :foreground magenta)
+   ;;;; popup
    (popup-tip-face                        :inherit 'popup-face
                                           :foreground magenta :background bg-alt)
+   ;;;; rainbow-delimiters
+   (rainbow-delimiters-depth-1-face :foreground blue)
+   (rainbow-delimiters-depth-2-face :foreground green)
+   (rainbow-delimiters-depth-3-face :foreground red)
+   (rainbow-delimiters-depth-4-face :foreground blue)
+   (rainbow-delimiters-depth-5-face :foreground green)
+   (rainbow-delimiters-depth-6-face :foreground red)
+   (rainbow-delimiters-depth-7-face :foreground blue)
+   (rainbow-delimiters-depth-8-face :foreground green)
+   (rainbow-delimiters-depth-9-face :foreground red)
+   ;;;; show-paren <built-in>
+   (show-paren-match    :foreground red    :background bg-alt
+                        :weight 'ultra-bold :underline t)
+   (show-paren-mismatch :foreground bg-alt :background red
+                        :weight 'ultra-bold :underline t)
    ;;;; smerge-tool
    (smerge-upper                          :background (doom-blend red bg 0.2))
    ;;;; treemacs
@@ -265,6 +306,10 @@ There are three styles to select from:
    (tree-sitter-hl-face:property          :foreground fg)
    (tree-sitter-hl-face:punctuation       :foreground base3)
    (tree-sitter-hl-face:type.builtin      :foreground dark-blue)
+   ;;;; widget <built-in>
+   (widget-field                          :foreground fg :background bg-alt
+                                          :box '(:line-width -1))
+
    ;;;; which-key
    (which-key-group-description-face      :foreground magenta)))
 
