@@ -103,7 +103,7 @@ There are three styles to select from:
                      fg)
                     ;; 'original == default
                     (t red)))
-   (doc-comments   (doom-darken red 0.25))
+   (doc-comments   green)
    (constants      magenta)
    (functions      dark-blue)
    (keywords       fg)
