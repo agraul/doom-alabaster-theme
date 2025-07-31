@@ -18,6 +18,15 @@
 ;;; Code:
 (require 'doom-themes)
 
+(defun doom-alabaster--setopt (sym val)
+  "Custom setter that sets SYM to VAL and reloads the theme."
+  (set-default sym val)
+  ;;`custom--inhibit-theme-enable' is set to nil by `enable-theme'
+  ;; don't reload when `enable-theme' is running
+  (when (and (bound-and-true-p custom--inhibit-theme-enable)
+             (memq 'doom-alabaster custom-enabled-themes))
+    (load-theme 'doom-alabaster :no-confirm)))
+
 (defgroup doom-alabaster-theme nil
   "Options for the `doom-alabaster' theme."
   :group 'doom-themes)
@@ -41,8 +50,8 @@ There are three styles to select from:
   :group 'doom-alabaster-theme
   :type '(choice (const :tag "Original" original)
                  (const :tag "faint" faint)
-                 (const :tag "nil" nil)))
-
+                 (const :tag "nil" nil))
+  :set #'doom-alabaster--setopt)
 
 (def-doom-theme doom-alabaster
   "A light theme with little highlighting"
