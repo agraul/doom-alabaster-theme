@@ -238,7 +238,10 @@ There are three styles to select from:
                                           :inherit 'magit-diff-context-highlight)
    (magit-dimmed                          :foreground fg-alt)
    (magit-filename                        :foreground fg)
-   (magit-log-author                      :foreground magenta)
+   (magit-log-author                      :foreground fg)
+   (magit-log-date                        :foreground green)
+   (magit-log-graph                       :foreground magenta)
+   (magit-hash                            :foreground magenta)
    (magit-section-secondary-heading       :foreground magenta :bold bold)
    (magit-tag                             :foreground blue)
    ;;;; markdown
@@ -323,6 +326,13 @@ There are three styles to select from:
    (tree-sitter-hl-face:property          :foreground fg)
    (tree-sitter-hl-face:punctuation       :foreground base3)
    (tree-sitter-hl-face:type.builtin      :foreground dark-blue)
+   ;;;; vc and related faces
+   (change-log-acknowledgment             :foreground magenta)
+   (change-log-date                       :foreground green)
+   (change-log-name                       :foreground fg)
+   (change-log-list                       :foreground dark-blue) ; e.g. tags, branches
+   (log-view-message                      :foreground magenta)
+   (log-view-commit-body                  :foreground fg)
    ;;;; which-key
    (which-key-group-description-face      :foreground magenta)
    ;;;; widget <built-in>
