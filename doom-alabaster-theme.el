@@ -54,7 +54,7 @@ There are three styles to select from:
   :set #'doom-alabaster--setopt)
 
 (def-doom-theme doom-alabaster
-  "A light theme with little highlighting"
+    "A light theme with little highlighting"
 
 ;;;; Colors
   ;; name        default     256         16
@@ -130,7 +130,8 @@ There are three styles to select from:
    (minibuffer-prompt                     :foreground dark-blue)
    (mode-line                             :foreground modeline-fg :background modeline-bg)
    (mode-line-emphasis                    :inherit 'mode-line :bold bold)
-   (mode-line-inactive                    :foreground modeline-fg :background modeline-bg-inactive)
+   (mode-line-inactive                    :foreground modeline-fg
+                                          :background modeline-bg-inactive)
    (secondary-selection                   :background bg-dark)
    ;; drop bold from link
    (link                                  :foreground highlight :underline t)
@@ -150,8 +151,10 @@ There are three styles to select from:
    (company-tooltip-selection             :background bg-dark)
    ;;;; custom <built-in
    (custom-group-tag                      :foreground dark-blue)
-   (custom-button-unraised                :foreground dark-blue :background bg :button '(line-width 1 :style nil))
-   (custom-button-pressed-unraised        :foreground bg :background dark-blue :button '(line-width 1 :style nil))
+   (custom-button-unraised                :foreground dark-blue :background bg
+                                          :button '(line-width 1 :style nil))
+   (custom-button-pressed-unraised        :foreground bg :background dark-blue
+                                          :button '(line-width 1 :style nil))
    ;;;; diff-indicator
    (diff-added                            :inherit 'magit-diff-added-highlight)
    (diff-changed                          :inherit 'magit-diff-hunk-heading)
@@ -160,27 +163,29 @@ There are three styles to select from:
    ;;;; dired <built-in>
    (dired-header                          :foreground dark-blue :bold bold)
    (dired-marked                          :foreground magenta :bold bold)
-   (dired-broken-symlink :background warning :foreground bg-alt :bold bold)
+   (dired-broken-symlink                  :background warning :foreground bg-alt
+                                          :bold bold)
    (dired-symlink                         :foreground dark-cyan)
    ;;;; dired-git-info
    (dgi-commit-message-face               :foreground fg-alt)
    ;;;; ediff <built-in>
-   (ediff-fine-diff-A                     :background (doom-blend selection bg 0.5) :bold bold :extend t)
+   (ediff-fine-diff-A                     :background (doom-blend selection bg 0.5)
+                                          :bold bold :extend t)
    ;;;; eglot
    (eglot-highlight-symbol-face           :background bg-dark)
    ;;;; eshell <built-in>
-   (eshell-prompt        :foreground fg)
-   (eshell-ls-archive    :foreground fg)
-   (eshell-ls-backup     :foreground fg)
-   (eshell-ls-clutter    :foreground fg)
-   (eshell-ls-directory  :foreground dark-blue)
-   (eshell-ls-executable :foreground fg)
-   (eshell-ls-missing    :foreground fg)
-   (eshell-ls-product    :foreground fg)
-   (eshell-ls-readonly   :foreground fg)
-   (eshell-ls-special    :foreground fg)
-   (eshell-ls-symlink    :inherit 'dired-symlink)
-   (eshell-ls-unreadable :foreground fg)
+   (eshell-prompt                         :foreground fg)
+   (eshell-ls-archive                     :foreground fg)
+   (eshell-ls-backup                      :foreground fg)
+   (eshell-ls-clutter                     :foreground fg)
+   (eshell-ls-directory                   :foreground dark-blue)
+   (eshell-ls-executable                  :foreground fg)
+   (eshell-ls-missing                     :foreground fg)
+   (eshell-ls-product                     :foreground fg)
+   (eshell-ls-readonly                    :foreground fg)
+   (eshell-ls-special                     :foreground fg)
+   (eshell-ls-symlink                     :inherit 'dired-symlink)
+   (eshell-ls-unreadable                  :foreground fg)
    ;;;; font-lock-*-face <built-in>
    (font-lock-preprocessor-face           :foreground operators)
    (font-lock-preprocessor-char-face      :foreground operators)
@@ -217,23 +222,26 @@ There are three styles to select from:
    (magit-cherry-equivalent               :foreground magenta)
    (magit-cherry-unmatched                :foreground blue)
    (magit-diff-added                      :foreground green)
-   (magit-diff-added-highlight            :foreground green :inherit 'magit-diff-context-highlight)
+   (magit-diff-added-highlight            :foreground green
+                                          :inherit 'magit-diff-context-highlight)
    (magit-diff-context                    :foreground base6 :background base1)
    (magit-diff-context-highlight          :foreground base7 :background base1)
-   (magit-diff-hunk-heading               :foreground fg :background (doom-lighten base3 0.3))
+   (magit-diff-hunk-heading               :foreground fg
+                                          :background (doom-lighten base3 0.3))
    (magit-diff-hunk-heading-highlight     :foreground base7 :background bg-dark)
    (magit-diff-hunk-heading-highlight     :foreground bg-alt :background base3)
    (magit-diff-hunk-heading-selection     :foreground orange :background bg-dark)
    (magit-diff-our                        :background bg-alt)
    (magit-diff-our-highlight              :background bg-alt)
    (magit-diff-removed                    :foreground red)
-   (magit-diff-removed-highlight          :foreground red :inherit 'magit-diff-context-highlight)
+   (magit-diff-removed-highlight          :foreground red
+                                          :inherit 'magit-diff-context-highlight)
    (magit-dimmed                          :foreground fg-alt)
    (magit-filename                        :foreground fg)
    (magit-log-author                      :foreground magenta)
    (magit-section-secondary-heading       :foreground magenta :bold bold)
    (magit-tag                             :foreground blue)
-   ;;; markdown
+   ;;;; markdown
    (markdown-code-face                    :background bg-alt)
    (markdown-bold-face                    :inherit 'bold :foreground fg)
    (markdown-italic-face                  :inherit 'italic :foreground fg)
@@ -284,20 +292,20 @@ There are three styles to select from:
    (popup-tip-face                        :inherit 'popup-face
                                           :foreground magenta :background bg-alt)
    ;;;; rainbow-delimiters
-   (rainbow-delimiters-depth-1-face :foreground blue)
-   (rainbow-delimiters-depth-2-face :foreground green)
-   (rainbow-delimiters-depth-3-face :foreground red)
-   (rainbow-delimiters-depth-4-face :foreground blue)
-   (rainbow-delimiters-depth-5-face :foreground green)
-   (rainbow-delimiters-depth-6-face :foreground red)
-   (rainbow-delimiters-depth-7-face :foreground blue)
-   (rainbow-delimiters-depth-8-face :foreground green)
-   (rainbow-delimiters-depth-9-face :foreground red)
+   (rainbow-delimiters-depth-1-face       :foreground blue)
+   (rainbow-delimiters-depth-2-face       :foreground green)
+   (rainbow-delimiters-depth-3-face       :foreground red)
+   (rainbow-delimiters-depth-4-face       :foreground blue)
+   (rainbow-delimiters-depth-5-face       :foreground green)
+   (rainbow-delimiters-depth-6-face       :foreground red)
+   (rainbow-delimiters-depth-7-face       :foreground blue)
+   (rainbow-delimiters-depth-8-face       :foreground green)
+   (rainbow-delimiters-depth-9-face       :foreground red)
    ;;;; show-paren <built-in>
-   (show-paren-match    :foreground red    :background bg-alt
-                        :weight 'ultra-bold :underline t)
-   (show-paren-mismatch :foreground bg-alt :background red
-                        :weight 'ultra-bold :underline t)
+   (show-paren-match                      :foreground red :background bg-alt
+                                          :weight 'ultra-bold :underline t)
+   (show-paren-mismatch                   :foreground bg-alt :background red
+                                          :weight 'ultra-bold :underline t)
    ;;;; smerge-tool
    (smerge-upper                          :background (doom-blend red bg 0.2))
    ;;;; treemacs
@@ -315,12 +323,11 @@ There are three styles to select from:
    (tree-sitter-hl-face:property          :foreground fg)
    (tree-sitter-hl-face:punctuation       :foreground base3)
    (tree-sitter-hl-face:type.builtin      :foreground dark-blue)
+   ;;;; which-key
+   (which-key-group-description-face      :foreground magenta)
    ;;;; widget <built-in>
    (widget-field                          :foreground fg :background bg-alt
-                                          :box '(:line-width -1))
-
-   ;;;; which-key
-   (which-key-group-description-face      :foreground magenta)))
+                                          :box '(:line-width -1))))
 
 ;;;###autoload
 (when (and (boundp 'custom-theme-load-path) load-file-name)
