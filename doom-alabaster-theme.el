@@ -311,6 +311,10 @@ There are three styles to select from:
                                           :weight 'ultra-bold :underline t)
    ;;;; smerge-tool
    (smerge-upper                          :background (doom-blend red bg 0.2))
+   ;;;; tab-bar <built-in>
+   (tab-bar                               :foreground fg :background modeline-bg)
+   (tab-bar-tab                           :inherit 'tab-bar :underline t)
+   (tab-bar-tab-inactive                  :inherit 'tab-bar)
    ;;;; treemacs
    (treemacs-git-modified-face            :foreground yellow)
    ;;;; tree-sitter
