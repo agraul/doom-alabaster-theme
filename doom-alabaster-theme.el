@@ -327,7 +327,9 @@ There are three styles to select from:
    (which-key-group-description-face      :foreground magenta)
    ;;;; widget <built-in>
    (widget-field                          :foreground fg :background bg-alt
-                                          :box '(:line-width -1))))
+                                          :box '(:line-width -1))
+   ;;;; window-divider <built-in>
+   (window-divider                        :foreground base3 :background base3)))
 
 ;;;###autoload
 (when (and (boundp 'custom-theme-load-path) load-file-name)
