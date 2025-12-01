@@ -253,6 +253,8 @@
    (magit-section-heading                 :foreground fg-blue :bold bold :extend t)
    (magit-section-secondary-heading       :foreground fg-magenta :bold bold)
    (magit-tag                             :foreground fg-blue)
+   ;;;; Make (make-mode)
+   (makefile-targets                      :foreground fg :background blue)
    ;;;; markdown
    (markdown-pre-face                     :foreground fg-green)
    (markdown-code-face                    :background bg-alt)
