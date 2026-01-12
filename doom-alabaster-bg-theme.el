@@ -75,7 +75,7 @@
    (fg-blue      '("#007ACC" "#007ACC"   "brightblue"))
    (fg-red       '("#AA3731" "#AA3731"   "red"))
    (fg-green     '("#448C27" "#448C27"   "green"))
-
+   (fg-yellow       '("#CB9000" "#CB9000"   "yellow"))
 
 
    (yellow-highlight (doom-blend light-yellow bg 0.2))
@@ -136,6 +136,16 @@
    (marginalia-number          :foreground numbers)
    (marginalia-lighter         :foreground violet)
 
+   ;;;; adoc-mode
+   (adoc-gen-face             :foreground fg :background bg)
+   (adoc-meta-hide-face       :inherit 'font-lock-escape-face)
+   (adoc-meta-face            :foreground fg)
+   (adoc-title-0-face :inherit 'adoc-title-face :height 1.0)
+   (adoc-title-1-face :inherit 'outline-1 :weight 'semi-bold)
+   (adoc-title-2-face :inherit 'outline-2)
+   (adoc-title-3-face :inherit 'outline-3)
+   (adoc-title-4-face :inherit 'outline-4)
+   (adoc-title-5-face :inherit 'outline-5)
    ;;;; all-the-icons
    (all-the-icons-purple                  :foreground fg-magenta)
    ;;;; cider
@@ -155,6 +165,9 @@
    (diff-changed                          :inherit 'magit-diff-hunk-heading)
    (diff-hunk-header                      :inherit 'magit-diff-hunk-heading)
    (diff-removed                          :inherit 'magit-diff-removed-highlight)
+   ;;;; diff-mode
+   (diff-file-header                      :inherit 'magit-diff-file-heading)
+   (diff-header                           :inherit 'magit-diff-hunk-heading)
    ;;;; dired <built-in>
    (dired-header                          :foreground dark-blue :bold bold)
    (dired-marked                          :foreground fg-magenta :bold bold)
@@ -163,12 +176,15 @@
    (dired-symlink                         :foreground dark-cyan)
    ;;;; dired-git-info
    (dgi-commit-message-face               :foreground fg-alt)
+   ;;;; doom-modeline
+   (doom-modeline-project-dir             :inherit 'doom-modeline
+                                          :foreground fg-green :bold bold)
    ;;;; ediff <built-in>
    (ediff-fine-diff-A                     :background (doom-blend selection bg 0.5)
                                           :bold bold :extend t)
    ;;;; eglot
    (eglot-highlight-symbol-face           :background bg-dark)
-   ;;;; eshell <built-in>
+ ;;;; eshell <built-in>
    (eshell-prompt                         :foreground fg)
    (eshell-ls-archive                     :foreground fg)
    (eshell-ls-backup                      :foreground fg)
@@ -181,12 +197,17 @@
    (eshell-ls-special                     :foreground fg)
    (eshell-ls-symlink                     :inherit 'dired-symlink)
    (eshell-ls-unreadable                  :foreground fg)
+   ;;;; flycheck
+   (flycheck-error                        :underline `(:style wave :color ,error))
+   (flycheck-warning                      :underline `(:style wave :color ,orange))
+   (flycheck-info                         :underline `(:style wave :color ,fg-green))
  ;;;; font-lock-*-face <built-in>
    (font-lock-comment-face                :foreground fg :background yellow)
    (font-lock-doc-face                    :foreground fg :background green)
    (font-lock-function-name-face          :foreground fg :background blue)
    (font-lock-string-face                 :foreground fg :background green)
    (font-lock-type-face                   :foreground fg :background blue)
+   (font-lock-function-call-face          :inherit 'default)
  ;;;; forge
    (forge-topic-label                     :box '(:line-width -1))
  ;;;; git-commit
@@ -224,6 +245,7 @@
    (lsp-rust-analyzer-inlay-face          :foreground fg-alt :background bg-dark)
    ;;;; magit
    (magit-blame-heading                   :foreground dark-blue :background bg-dark)
+   (magit-blame-date                      :foreground fg-red)
    (magit-branch-current                  :foreground fg-blue)
    (magit-branch-local                    :foreground dark-blue)
    (magit-branch-remote                   :foreground fg-green)
@@ -239,6 +261,7 @@
    (magit-diff-hunk-heading-highlight     :foreground base7 :background bg-dark)
    (magit-diff-hunk-heading-highlight     :foreground bg-alt :background base3)
    (magit-diff-hunk-heading-selection     :foreground orange :background bg-dark)
+   (magit-diff-lines-heading              :foreground fg-yellow :background red)
    (magit-diff-our                        :background bg-alt)
    (magit-diff-our-highlight              :background bg-alt)
    (magit-diff-removed                    :foreground fg-red)
@@ -252,6 +275,8 @@
    (magit-hash                            :foreground fg-magenta)
    (magit-section-heading                 :foreground fg-blue :bold bold :extend t)
    (magit-section-secondary-heading       :foreground fg-magenta :bold bold)
+   (magit-sequence-head                   :inherit 'magit-head)
+   (magit-sequence-drop                   :inherit 'magit-diff-removed)
    (magit-tag                             :foreground fg-blue)
    ;;;; Make (make-mode)
    (makefile-targets                      :foreground fg :background blue)
@@ -310,6 +335,8 @@
    (org-level-1                           :inherit 'outline-1 :weight 'semibold)
    (org-property-value                    :foreground fg-alt)
    (org-special-keyword                   :foreground fg-alt)
+   (org-todo                              :foreground fg-green)
+   (org-priority                          :foreground fg-red)
    (org-table                             :background bg-alt)
    (org-tag                               :foreground fg)
    (org-verbatim                          :foreground fg-green :background bg-alt)
@@ -385,4 +412,4 @@
   (add-to-list 'custom-theme-load-path (file-name-directory load-file-name)))
 
 (provide 'doom-alabaster-bg-theme)
-;;; doom-alabaster-theme.el ends here
+;;; doom-alabaster-bg-theme.el ends here
