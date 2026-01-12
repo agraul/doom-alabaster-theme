@@ -203,10 +203,10 @@
    (flycheck-info                         :underline `(:style wave :color ,fg-green))
  ;;;; font-lock-*-face <built-in>
    (font-lock-comment-face                :foreground fg :background yellow)
-   (font-lock-doc-face                    :foreground fg :background green)
-   (font-lock-function-name-face          :foreground fg :background blue)
-   (font-lock-string-face                 :foreground fg :background green)
-   (font-lock-type-face                   :foreground fg :background blue)
+   (font-lock-doc-face                    :foreground fg-green :background green)
+   (font-lock-function-name-face          :foreground dark-blue :background blue)
+   (font-lock-string-face                 :foreground fg-green :background green)
+   (font-lock-type-face                   :foreground dark-blue :background blue)
    (font-lock-function-call-face          :inherit 'default)
  ;;;; forge
    (forge-topic-label                     :box '(:line-width -1))
