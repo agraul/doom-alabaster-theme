@@ -19,7 +19,7 @@
 (require 'doom-themes)
 
 (defun doom-alabaster-bg--setopt (sym val)
-  "Custom setter that sets SYM to VAL and reloads the theme."
+  "Set SYM to VAL and reload the theme."
   (set-default sym val)
   ;;`custom--inhibit-theme-enable' is set to nil by `enable-theme'
   ;; don't reload when `enable-theme' is running
@@ -69,13 +69,13 @@
    (teal         '("#60CB00" "#60CB00"   "brightgreen"))
    (violet       '("#E64CE6" "#E64CE6"   "brightmagenta"))
    (cyan         '("#00AACB" "#00AACB"   "brightcyan"))
+   (fg-green     '("#3D7C1F" "#3D7C1F"   "green")) ; slightly darker than stock-alabaster
 
    ;; fg color variants from stock alabaster
    (fg-magenta   '("#7A3E9D" "#7A3E9D"   "magenta"))
    (fg-blue      '("#007ACC" "#007ACC"   "brightblue"))
    (fg-red       '("#AA3731" "#AA3731"   "red"))
-   (fg-green     '("#448C27" "#448C27"   "green"))
-   (fg-yellow       '("#CB9000" "#CB9000"   "yellow"))
+   (fg-yellow    '("#CB9000" "#CB9000"   "yellow"))
 
 
    (yellow-highlight (doom-blend light-yellow bg 0.2))
@@ -119,10 +119,10 @@
    (secondary-selection                   :background bg-dark)
    ;; drop bold from link
    (link                                  :foreground highlight :underline t)
-   ;;; Search highlight -> light yellow
+   ;;; Search highlight
    (evil-ex-lazy-highlight                :background yellow-highlight)
    (evil-ex-search                        :background light-yellow)
-   (lazy-highlight                        :background yellow-highlight)
+   (lazy-highlight                        :background yellow)
    (match                                 :foreground fg-green :background base0 :weight 'bold)
    ;;;; vertico family
    (marginalia-size                       :foreground fg-magenta)
@@ -148,9 +148,17 @@
    (adoc-title-5-face :inherit 'outline-5)
    ;;;; all-the-icons
    (all-the-icons-purple                  :foreground fg-magenta)
+   ;;;; ansi-color
+   (ansi-color-red                        :foreground fg-red :background fg-red)
+   (ansi-color-blue                       :foreground fg-blue :background fg-blue)
+   (ansi-color-green                      :foreground fg-green :background fg-green)
+   (ansi-color-yellow                     :foreground fg-yellow :background fg-yellow)
+   (ansi-color-magenta                    :foreground fg-magenta :background fg-magenta)
+   (ansi-color-red                        :foreground fg-red :background fg-red)
    ;;;; cider
    (cider-debug-code-overlay-face         :background base1)
    (cider-result-overlay-face             :background base1)
+   (cider-test-success-face               :foreground fg :background green)
    ;;;; company
    (company-tooltip-annotation            :foreground fg)
    (company-tooltip-selection             :background bg-dark)
@@ -171,11 +179,15 @@
    ;;;; dired <built-in>
    (dired-header                          :foreground dark-blue :bold bold)
    (dired-marked                          :foreground fg-magenta :bold bold)
+   (dired-flagged                         :foreground fg-red :bold bold)
    (dired-broken-symlink                  :background warning :foreground bg-alt
                                           :bold bold)
    (dired-symlink                         :foreground dark-cyan)
    ;;;; dired-git-info
    (dgi-commit-message-face               :foreground fg-alt)
+   ;;;; doom
+   (doom-dashboard-banner                 :foreground fg-green)
+   (doom-dashboard-loaded                 :foreground fg-green)
    ;;;; doom-modeline
    (doom-modeline-project-dir             :inherit 'doom-modeline
                                           :foreground fg-green :bold bold)
@@ -184,7 +196,9 @@
                                           :bold bold :extend t)
    ;;;; eglot
    (eglot-highlight-symbol-face           :background bg-dark)
- ;;;; eshell <built-in>
+   ;;;; elisp
+   (elisp-shorthand-font-lock-face        :inherit 'default)
+   ;;;; eshell <built-in>
    (eshell-prompt                         :foreground fg)
    (eshell-ls-archive                     :foreground fg)
    (eshell-ls-backup                      :foreground fg)
@@ -198,19 +212,22 @@
    (eshell-ls-symlink                     :inherit 'dired-symlink)
    (eshell-ls-unreadable                  :foreground fg)
    ;;;; flycheck
-   (flycheck-error                        :underline `(:style wave :color ,error))
-   (flycheck-warning                      :underline `(:style wave :color ,orange))
-   (flycheck-info                         :underline `(:style wave :color ,fg-green))
+   (flycheck-error                        :underline `(:style wave :color ,error) :foreground 'unspecified)
+   (flycheck-warning                      :underline `(:style wave :color ,orange) :foreground 'unspecified)
+   (flycheck-info                         :underline `(:style wave :color ,fg-green) :foreground 'unspecified)
  ;;;; font-lock-*-face <built-in>
    (font-lock-comment-face                :foreground fg :background yellow)
    (font-lock-doc-face                    :foreground fg-green :background green)
+   (font-lock-preprocessor-face           :inherit 'default)
+   (font-lock-preprocessor-char-face      :inherit 'default)
    (font-lock-function-name-face          :foreground dark-blue :background blue)
-   (font-lock-string-face                 :foreground fg-green :background green)
    (font-lock-type-face                   :foreground dark-blue :background blue)
+   (font-lock-string-face                 :foreground fg-green :background green)
    (font-lock-function-call-face          :inherit 'default)
+   (font-lock-negation-char-face          :inherit 'default)
  ;;;; forge
    (forge-topic-label                     :box '(:line-width -1))
- ;;;; git-commit
+   ;;;; git-commit
    (git-commit-comment-branch-local       :inherit 'magit-branch-local)
    (git-commit-comment-branch-remote      :inherit 'magit-branch-remote)
    (git-commit-comment-file               :foreground fg)
@@ -238,12 +255,16 @@
    (gnus-signature                        :foreground fg-alt)
    ;;;; highlight-numbers-number
    (highlight-numbers-number              :foreground numbers)
+   ;;;; highlight-symbol
+   (highlight-quoted-symbol               :inherit 'font-lock-variable-face)
    ;;;; lsp
    (lsp-face-highlight-textual            :background bg-dark)
    (lsp-flycheck-warning-deprecated-face  :inherit 'flycheck-warning)
    ;;;; lsp-rust
    (lsp-rust-analyzer-inlay-face          :foreground fg-alt :background bg-dark)
    ;;;; magit
+   (magit-bisect-good                     :foreground fg-green)
+   (magit-bisect-bad                      :foreground fg-red)
    (magit-blame-heading                   :foreground dark-blue :background bg-dark)
    (magit-blame-date                      :foreground fg-red)
    (magit-branch-current                  :foreground fg-blue)
@@ -273,32 +294,39 @@
    (magit-log-date                        :foreground fg-green)
    (magit-log-graph                       :foreground fg-magenta)
    (magit-hash                            :foreground fg-magenta)
-   (magit-section-heading                 :foreground fg-blue :bold bold :extend t)
+   (magit-section-heading                 :foreground dark-blue :bold bold :extend t)
    (magit-section-secondary-heading       :foreground fg-magenta :bold bold)
    (magit-sequence-head                   :inherit 'magit-head)
    (magit-sequence-drop                   :inherit 'magit-diff-removed)
    (magit-tag                             :foreground fg-blue)
    ;;;; Make (make-mode)
-   (makefile-targets                      :foreground fg :background blue)
+   (makefile-targets                      :inherit 'font-lock-type-face)
    ;;;; markdown
-   (markdown-pre-face                     :foreground fg-green)
-   (markdown-code-face                    :background bg-alt)
+   (markdown-reference-face               :foreground fg-magenta)
+   (markdown-pre-face                     :foreground fg)
+   (markdown-code-face                    :foreground fg)
    (markdown-bold-face                    :inherit 'bold :foreground fg)
    (markdown-italic-face                  :inherit 'italic :foreground fg)
-   (markdown-inline-code-face             :foreground fg-red :background bg-alt)
-   (markdown-link-face                    :inherit 'link)
-   (markdown-url-face                     :inherit 'link :foreground fg-magenta)
+   (markdown-inline-code-face             :background bg-alt :foreground fg)
+   (markdown-link-face                    :inherit 'font-lock-string-face)
+   (markdown-url-face                     :foreground fg :underline t)
    (markdown-list-face                    :foreground fg)
    (markdown-metadata-key-face            :foreground fg)
    (markdown-metadata-value-face          :foreground fg)
    (markdown-header-delimiter-face        :foreground fg)
    (markdown-header-face                  :foreground fg)
-   (markdown-header-face-1                :inherit 'outline-1 :weight 'semi-bold)
-   (markdown-header-face-2                :inherit 'outline-2)
-   (markdown-header-face-3                :inherit 'outline-3)
-   (markdown-header-face-4                :inherit 'outline-4)
-   (markdown-header-face-5                :inherit 'outline-5)
-   (markdown-header-face-6                :inherit 'outline-6)
+   (markdown-header-face-1                :inherit 'font-lock-type-face)
+   (markdown-header-face-2                :inherit 'font-lock-type-face)
+   (markdown-header-face-3                :inherit 'font-lock-type-face)
+   (markdown-header-face-4                :inherit 'font-lock-type-face)
+   (markdown-header-face-5                :inherit 'font-lock-type-face)
+   (markdown-header-face-6                :inherit 'font-lock-type-face)
+   ;; (markdown-header-face-1                :inherit 'outline-1 :weight 'semi-bold)
+   ;; (markdown-header-face-2                :inherit 'outline-2)
+   ;; (markdown-header-face-3                :inherit 'outline-3)
+   ;; (markdown-header-face-4                :inherit 'outline-4)
+   ;; (markdown-header-face-5                :inherit 'outline-5)
+   ;; (markdown-header-face-6                :inherit 'outline-6)
    ;;;; message
    (message-header-name                   :foreground fg-green)
    (message-header-other                  :foreground fg)
@@ -310,6 +338,12 @@
    (mu4e-header-key-face                  :foreground fg)
    (mu4e-trashed-face                     :foreground fg-alt :strike-through t)
    ;;; nerd-icons
+   (nerd-icons-red                        :foreground fg-red)
+   (nerd-icons-lred                      :foreground (doom-lighten fg-red 0.3))
+   (nerd-icons-green                      :foreground fg-green)
+   (nerd-icons-blue                       :foreground fg-blue)
+   (nerd-icons-lblue                      :foreground (doom-lighten fg-blue 0.3))
+   (nerd-icons-yellow                     :foreground fg-yellow)
    (nerd-icons-purple                     :foreground fg-magenta)
    ;;;; orderless
    (orderless-match-face-0 :weight 'bold :foreground (doom-blend fg-blue    fg 0.6)
@@ -327,7 +361,7 @@
    (org-agenda-headline-done              :foreground fg-alt)
    (org-block                             :background bg-alt)
    (org-block-begin-line                  :background base1 :extend t)
-   (org-code                              :foreground fg-red :background bg-alt)
+   (org-code                              :foreground fg-alt :background bg-alt)
    (org-date                              :foreground fg-alt)
    (org-drawer                            :foreground fg-alt)
    (org-formula                           :foreground fg)
@@ -352,6 +386,10 @@
    ;;;; popup
    (popup-tip-face                        :inherit 'popup-face
                                           :foreground fg-magenta :background bg-alt)
+   ;;;; pr-review
+   (pr-review-hash-face                   :inherit 'magit-hash)
+   ;;;; pulse
+   (pusle-highlight-start-face            :background yellow)
    ;;;; rainbow-delimiters
    (rainbow-delimiters-depth-1-face       :foreground fg-blue)
    (rainbow-delimiters-depth-2-face       :foreground fg-green)
@@ -362,6 +400,8 @@
    (rainbow-delimiters-depth-7-face       :foreground fg-blue)
    (rainbow-delimiters-depth-8-face       :foreground fg-green)
    (rainbow-delimiters-depth-9-face       :foreground fg-red)
+   ;;;; sh-script
+   (sh-quoted-exec                       :background bg-alt)
    ;;;; show-paren <built-in>
    (show-paren-match                      :foreground fg-red :background bg-alt
                                           :weight 'ultra-bold :underline t)

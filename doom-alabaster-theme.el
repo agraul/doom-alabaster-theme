@@ -49,8 +49,8 @@ There are three styles to select from:
 3. nil: no comment highlighting."
   :group 'doom-alabaster-theme
   :type '(choice (const :tag "Original" original)
-                 (const :tag "faint" faint)
-                 (const :tag "nil" nil))
+          (const :tag "faint" faint)
+          (const :tag "nil" nil))
   :set #'doom-alabaster--setopt)
 
 (def-doom-theme doom-alabaster
@@ -141,6 +141,26 @@ There are three styles to select from:
    (lazy-highlight                        :background yellow-highlight)
    ;;;; vertico family
    (marginalia-size                       :foreground magenta)
+   (marginalia-file-priv-dir              :foreground fg)
+   (marginalia-file-priv-exec             :foreground fg)
+   (marginalia-file-priv-link             :foreground dark-blue)
+   (marginalia-file-priv-other            :foreground fg)
+   (marginalia-file-priv-rare             :foreground fg)
+   (marginalia-file-priv-read             :foreground fg)
+   (marginalia-file-priv-write            :foreground fg)
+   (marginalia-number                     :foreground numbers)
+   (marginalia-lighter                    :foreground violet)
+
+   ;;;; adoc-mode
+   (adoc-gen-face             :foreground fg :background bg)
+   (adoc-meta-hide-face       :inherit 'font-lock-escape-face)
+   (adoc-meta-face            :foreground fg)
+   (adoc-title-0-face :inherit 'adoc-title-face :height 1.0)
+   (adoc-title-1-face :inherit 'outline-1 :weight 'semi-bold)
+   (adoc-title-2-face :inherit 'outline-2)
+   (adoc-title-3-face :inherit 'outline-3)
+   (adoc-title-4-face :inherit 'outline-4)
+   (adoc-title-5-face :inherit 'outline-5)
    ;;;; all-the-icons
    (all-the-icons-purple                  :foreground magenta)
    ;;;; cider
@@ -160,19 +180,31 @@ There are three styles to select from:
    (diff-changed                          :inherit 'magit-diff-hunk-heading)
    (diff-hunk-header                      :inherit 'magit-diff-hunk-heading)
    (diff-removed                          :inherit 'magit-diff-removed-highlight)
+   ;;;; diff-mode
+   (diff-file-header                      :inherit 'magit-diff-file-heading)
+   (diff-header                           :inherit 'magit-diff-hunk-heading)
    ;;;; dired <built-in>
    (dired-header                          :foreground dark-blue :bold bold)
    (dired-marked                          :foreground magenta :bold bold)
+   (dired-flagged                         :foreground red :bold bold)
    (dired-broken-symlink                  :background warning :foreground bg-alt
                                           :bold bold)
    (dired-symlink                         :foreground dark-cyan)
    ;;;; dired-git-info
    (dgi-commit-message-face               :foreground fg-alt)
+   ;;;; doom
+   (doom-dashboard-banner                 :foreground green)
+   (doom-dashboard-loaded                 :foreground green)
+   ;;;; doom-modeline
+   (doom-modeline-project-dir             :inherit 'doom-modeline
+                                          :foreground green :bold bold)
    ;;;; ediff <built-in>
    (ediff-fine-diff-A                     :background (doom-blend selection bg 0.5)
                                           :bold bold :extend t)
    ;;;; eglot
    (eglot-highlight-symbol-face           :background bg-dark)
+   ;;;; elisp
+   (elisp-shorthand-font-lock-face        :inherit 'default)
    ;;;; eshell <built-in>
    (eshell-prompt                         :foreground fg)
    (eshell-ls-archive                     :foreground fg)
@@ -187,8 +219,10 @@ There are three styles to select from:
    (eshell-ls-symlink                     :inherit 'dired-symlink)
    (eshell-ls-unreadable                  :foreground fg)
    ;;;; font-lock-*-face <built-in>
-   (font-lock-preprocessor-face           :foreground operators)
-   (font-lock-preprocessor-char-face      :foreground operators)
+   (font-lock-preprocessor-face           :inherit 'default)
+   (font-lock-preprocessor-char-face      :inherit 'default)
+   (font-lock-function-call-face          :inherit 'default)
+   (font-lock-negration-char-face         :inherit 'default)
    ;;;; forge
    (forge-topic-label                     :box '(:line-width -1))
    ;;;; git-commit
@@ -196,6 +230,7 @@ There are three styles to select from:
    (git-commit-comment-branch-remote      :inherit 'magit-branch-remote)
    (git-commit-comment-file               :foreground fg)
    (git-commit-keyword                    :foreground magenta :slant 'italic)
+   (git-commit-comment-detached           :foreground orange)
    ;;;; gnus
    (gnus-cite-1                           :foreground green)
    (gnus-cite-2                           :foreground dark-blue)
@@ -211,6 +246,8 @@ There are three styles to select from:
    (gnus-signature                        :foreground fg-alt)
    ;;;; highlight-numbers-number
    (highlight-numbers-number              :foreground numbers)
+   ;;;; highlight-symbol
+   (highlight-quoted-symbol               :inherit 'font-lock-variable-face)
    ;;;; lsp
    (lsp-face-highlight-textual            :background bg-dark)
    (lsp-flycheck-warning-deprecated-face  :inherit 'flycheck-warning)
@@ -231,6 +268,7 @@ There are three styles to select from:
    (magit-diff-hunk-heading-highlight     :foreground base7 :background bg-dark)
    (magit-diff-hunk-heading-highlight     :foreground bg-alt :background base3)
    (magit-diff-hunk-heading-selection     :foreground orange :background bg-dark)
+   (magit-diff-lines-heading              :foreground fg-yellow :background red)
    (magit-diff-our                        :background bg-alt)
    (magit-diff-our-highlight              :background bg-alt)
    (magit-diff-removed                    :foreground red)
@@ -242,16 +280,39 @@ There are three styles to select from:
    (magit-log-date                        :foreground green)
    (magit-log-graph                       :foreground magenta)
    (magit-hash                            :foreground magenta)
+   (magit-section-heading                 :foreground dark-blue :bold bold :extend t)
    (magit-section-secondary-heading       :foreground magenta :bold bold)
+   (magit-sequence-head                   :inherit 'magit-head)
+   (magit-sequence-drop                   :inherit 'magit-diff-removed)
    (magit-tag                             :foreground blue)
+   ;;;; Make (make-mode)
+   (makefile-targets                      :inherit 'font-lock-type-face)
    ;;;; markdown
-   (markdown-code-face                    :background bg-alt)
+   (markdown-reference-face               :magenta)
+   (markdown-pre-face                     :foreground fg)
+   (markdown-code-face                    :foreground fg)
    (markdown-bold-face                    :inherit 'bold :foreground fg)
    (markdown-italic-face                  :inherit 'italic :foreground fg)
-   (markdown-inline-code-face             :foreground red :background bg-alt)
-   (markdown-code-face                    :background bg-alt)
-   (markdown-link-face                    :inherit 'link)
+   (markdown-inline-code-face             :background bg-alt :foreground fg)
+   (markdown-link-face                    :inherit 'font-lock-string-face)
+   (markdown-url-face                     :foreground fg :underline t)
    (markdown-list-face                    :foreground fg)
+   (markdown-metadata-key-face            :foreground fg)
+   (markdown-metadata-value-face          :foreground fg)
+   (markdown-header-delimiter-face        :foreground fg)
+   (markdown-header-face                  :foreground fg)
+   (markdown-header-face-1                :inherit 'font-lock-type-face)
+   (markdown-header-face-2                :inherit 'font-lock-type-face)
+   (markdown-header-face-3                :inherit 'font-lock-type-face)
+   (markdown-header-face-4                :inherit 'font-lock-type-face)
+   (markdown-header-face-5                :inherit 'font-lock-type-face)
+   (markdown-header-face-6                :inherit 'font-lock-type-face)
+   ;; (markdown-header-face-1                :inherit 'outline-1 :weight 'semi-bold)
+   ;; (markdown-header-face-2                :inherit 'outline-2)
+   ;; (markdown-header-face-3                :inherit 'outline-3)
+   ;; (markdown-header-face-4                :inherit 'outline-4)
+   ;; (markdown-header-face-5                :inherit 'outline-5)
+   ;; (markdown-header-face-6                :inherit 'outline-6)
    ;;;; message
    (message-header-name                   :foreground green)
    (message-header-other                  :foreground fg)
@@ -271,7 +332,7 @@ There are three styles to select from:
    (org-agenda-headline-done              :foreground fg-alt)
    (org-block                             :background bg-alt)
    (org-block-begin-line                  :background base1 :extend t)
-   (org-code                              :foreground red :background bg-alt)
+   (org-code                              :foreground fg-alt :background bg-alt)
    (org-date                              :foreground fg-alt)
    (org-drawer                            :foreground fg-alt)
    (org-formula                           :foreground fg)
@@ -294,6 +355,10 @@ There are three styles to select from:
    ;;;; popup
    (popup-tip-face                        :inherit 'popup-face
                                           :foreground magenta :background bg-alt)
+   ;;;; pr-review
+   (pr-review-hash-face                   :inherit 'magit-hash)
+   ;;;; pulse
+   (pusle-highlight-start-face            :background yellow)
    ;;;; rainbow-delimiters
    (rainbow-delimiters-depth-1-face       :foreground blue)
    (rainbow-delimiters-depth-2-face       :foreground green)
